@@ -10,7 +10,13 @@ import argparse
 import numpy as np
 from tqdm import tqdm
 from math import log10
+import sys
 
+# Add the cloned repository to the Python path
+sys.path.append("/content/ACTINN")  # Replace '<repository_directory>' with the path to your cloned repository
+
+# Now you can import modules from the cloned repository
+import ACTINN
 # our libs
 from ACTIVA import ACTIVA
 from ACTIVA.utils import *
@@ -123,7 +129,7 @@ def main():
     if opt.data_type.lower() == "scanpy":
     #    if opt.example_data == 'pbmc':
         print("PBMC")
-        train_data_loader, valid_data_loader = Scanpy_IO("/home/hudaa/ACTIVA/real500.h5ad",
+        train_data_loader, valid_data_loader = Scanpy_IO("/content/drive/MyDrive/68k Cells/testtrain_100.h5ad",
                                                     test_no_valid = True,
                                                     batchSize=opt.batchSize, 
                                                     workers = opt.workers,
